@@ -1,0 +1,18 @@
+language: python
+python:
+  - "3.5"
+  - "3.5-dev"
+  - "3.6-dev"
+
+services:
+  - postgresql
+
+env:
+  global:
+    - DATABASE_URL=postgresql://localhost/supervisor_watcher
+
+before_script:
+  - psql -c 'drop database if exists supervisor_watcher;' -U postgres
+  - psql -c 'create database supervisor_watcher;' -U postgres
+
+script: make test
