@@ -11,5 +11,6 @@ ecdsa
 itsdangerous
 paramiko
 pycrypto
+psycopg2
 Flask-WTF
 pytest-xdist

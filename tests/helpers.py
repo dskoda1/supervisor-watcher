@@ -1,8 +1,7 @@
 import json
 import unittest
 
-from app import create_app
-
+from app import create_app, db_session, engine
 
 class TestClient(object):
     def __init__(self, app):
@@ -37,10 +36,19 @@ class TestClient(object):
 
 class TestCase(unittest.TestCase):
     def setUp(self):
-        self.app = create_app('config')
+        self.app = create_app('config.testing')
+        # import pdb; pdb.set_trace()
+        self.db = db_session
         self.ctx = self.app.app_context()
         self.ctx.push()
         self.client = TestClient(self.app)
+        import pdb; pdb.set_trace()
+        # Base = declarative_base()
+        # Base.metadata.drop_all(bind=engine)
+        # Base.metadata.create_all(bind=engine)
 
     def tearDown(self):
+        # Base = declarative_base()
+        # Base.metadata.drop_all(bind=engine)
+
         self.ctx.pop()

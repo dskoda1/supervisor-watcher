@@ -29,3 +29,6 @@ your supervisor hosts, and view them all in once concise format!
   ```
   $ make test
   ```
+
+
+Thanks [Flask Boilerplate](https://github.com/mjhea0/flask-boilerplate/tree/updated) for helping!

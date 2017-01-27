@@ -1,1 +1,4 @@
-{}
+{
+  "tests/test_page.py::TestPage::test_db": true,
+  "tests/test_page.py::TestPage::test_header": true
+}

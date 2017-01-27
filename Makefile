@@ -2,14 +2,14 @@
 
 ENV = development
 PYTEST_OPTIONS = -vv --exitfirst -n 1
-VENV = config/$(ENV)/env
+VENV = config/env
 export PYTHONPATH := $(PYTHONPATH):.
 
 # Run a local web server
 server: $(VENV)
 	. $(VENV)/bin/activate; python run.py
 
-config/%/env: config/%/requirements.txt
+config/env: config/requirements.txt
 	virtualenv $@
 	. $@/bin/activate && pip install --requirement $<
 
